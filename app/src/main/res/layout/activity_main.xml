@@ -4,18 +4,229 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEFEFE"
     tools:context=".SUPERCAL">
 
     <EditText
         android:id="@+id/Salary_nett"
-        android:layout_width="226dp"
-        android:layout_height="53dp"
-        android:layout_marginEnd="16dp"
-        android:background="@android:color/transparent"
+        android:layout_width="222dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="218dp"
+        android:layout_marginEnd="69dp"
+        android:backgroundTint="@android:color/black"
         android:ems="10"
+        android:hint="@string/hint"
         android:inputType="number"
         android:shadowColor="@android:color/white"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="51dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/employer"
+        android:layout_width="70dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/Employer"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toStartOf="@+id/employee"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/epf_employer"
+        android:layout_width="38dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="42dp"
+        android:text="@string/space"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintStart_toEndOf="@+id/EPF"
+        app:layout_constraintTop_toBottomOf="@+id/employer" />
+
+    <TextView
+        android:id="@+id/EIS_employer"
+        android:layout_width="38dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="46dp"
+        android:text="@string/space"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintStart_toEndOf="@+id/EIS"
+        app:layout_constraintTop_toBottomOf="@+id/socso_employer" />
+
+    <TextView
+        android:id="@+id/socso_employer"
+        android:layout_width="38dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="22dp"
+        android:text="@string/space"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintStart_toEndOf="@+id/SOCSO"
+        app:layout_constraintTop_toBottomOf="@+id/epf_employer" />
+
+    <TextView
+        android:id="@+id/EPF"
+        android:layout_width="28dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="307dp"
+        android:text="@string/EPF_rate"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/employee"
+        android:layout_width="70dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="67dp"
+        android:text="@string/EMployee"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/employer"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eis_employee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="99dp"
+        android:text="@string/space"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/EIS_employer"
+        app:layout_constraintTop_toBottomOf="@+id/socso_employee" />
+
+    <TextView
+        android:id="@+id/socso_employee"
+        android:layout_width="38dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="99dp"
+        android:text="@string/space"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/socso_employer"
+        app:layout_constraintTop_toBottomOf="@+id/epf_employee" />
+
+    <TextView
+        android:id="@+id/epf_employee"
+        android:layout_width="38dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="99dp"
+        android:text="@string/space"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/epf_employer"
+        app:layout_constraintTop_toBottomOf="@+id/employee" />
+
+    <TextView
+        android:id="@+id/SOCSO"
+        android:layout_width="48dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="75dp"
+        android:text="@string/PERKESO"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EPF" />
+
+    <TextView
+        android:id="@+id/EIS"
+        android:layout_width="24dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="75dp"
+        android:text="@string/EIS"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SOCSO" />
+
+    <TextView
+        android:id="@+id/results"
+        android:layout_width="153dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="88dp"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sf" />
+
+    <TextView
+        android:id="@+id/sf3"
+        android:layout_width="45dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="3dp"
+        android:text="@string/RM"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/results"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sf" />
+
+    <TextView
+        android:id="@+id/sf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="404dp"
+        android:layout_marginEnd="141dp"
+        android:text="@string/salaryafterdeduction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="76dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="10dp"
+        android:src="@mipmap/ss"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="129dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="63dp"
+        android:src="@mipmap/dssss"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Calculate"
+        android:layout_width="60dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="52dp"
+        android:background="@mipmap/cal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        tools:layout_editor_absoluteY="640dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

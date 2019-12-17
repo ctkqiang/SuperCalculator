@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Super Calculator</string>
+    <string name="app_name">Malaysian Salary Calculator</string>
+    <string name="EPF_rate">EPF: </string>
+    <string name="PERKESO">SOCSO: </string>
+    <string name="EIS">EIS: </string>
+    <string name="Employer">EMPLOYER</string>
+    <string name="EMployee">EMPLOYEE</string>
+    <string name="enter">Please Enter Your Salary (Before Deduction)</string>
+    <string name="hint">Enter Salary here (RM)</string>
+    <string name="space">{MYR}</string>
+    <string name="salaryafterdeduction">Salary After Deduction: </string>
+    <string name="RM">RM</string>
+    <string name="Calculate">Calculate</string>
 </resources>
