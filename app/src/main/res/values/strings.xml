@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Malaysian Salary Calculator</string>
+    <string name="app_name">Wages Calculator</string>
     <string name="EPF_rate">EPF: </string>
     <string name="PERKESO">SOCSO: </string>
     <string name="EIS">EIS: </string>
@@ -11,4 +11,20 @@
     <string name="salaryafterdeduction">Salary After Deduction: </string>
     <string name="RM">RM</string>
     <string name="Calculate">Calculate</string>
+    <string name="hint_enter_salary">&#009;Enter Basic Salary (Before Deduction)</string>
+    <string name="KWSPrate">KWSP Contribution Rate: </string>
+    <string name="sevenpercent">7%</string>
+    <string name="ninepercent">9%</string>
+    <string name="elevenpercent">11%</string>
+    <string name="KWSPCONTRIBUTION">Select KWSP Contribution:</string>
+    <string name="KWSPEmployee">KWSP Employee :</string>
+    <string name="KWSPEmployer">KWSP Employer :</string>
+    <string name="perkesoemployee">PEEKESO Employee :</string>
+    <string name="perkesoemployer">PERKESO Employer :</string>
+    <string name="esiemployee">EIS Employee :</string>
+    <string name="eisemployer">EIS Employer :</string>
+    <string name="survey">Help Us Survey this ?</string>
+    <string name="esurvey">Looking For Employment Act? </string>
+    <string name="GOOGLE_ADS_APP_ID">ca-app-pub-7608533085938915~5180222029</string>
+    <string name="GOOGLE_ADS_UNIT_ID">ca-app-pub-7608533085938915/4632415350</string>
 </resources>

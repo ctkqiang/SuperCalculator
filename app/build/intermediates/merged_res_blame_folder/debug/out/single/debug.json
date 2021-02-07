@@ -1,0 +1,114 @@
+[
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-mdpi_app.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-mdpi/app.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-hdpi_app.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-hdpi/app.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/drawable_buttonripple.xml.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/drawable/buttonripple.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xhdpi_app.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-xhdpi/app.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_app.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-xxxhdpi/app.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-hdpi_cxccccccc.jpg.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-hdpi/cxccccccc.jpg"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-hdpi_cal.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-hdpi/cal.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/layout_activity_employment.xml.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/layout/activity_employment.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/drawable_edittextborder.xml.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/drawable/edittextborder.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/layout_activity_survey_web.xml.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/layout/activity_survey_web.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-hdpi_dssss.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-hdpi/dssss.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-hdpi_ss.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-hdpi/ss.png"
+    },
+    {
+        "merged": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_app.png.flat",
+        "source": "/Users/macbook/Documents/SuperCalculator/app/src/main/res/mipmap-xxhdpi/app.png"
+    }
+]
