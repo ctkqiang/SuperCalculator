@@ -19,11 +19,11 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="35dp"
-            android:textColor="@android:color/white"
             android:background="@drawable/edittextborder"
             android:hint="@string/hint_enter_salary"
             android:inputType="numberDecimal"
             android:paddingStart="5dp"
+            android:textColor="@android:color/white"
             tools:ignore="RtlSymmetry" />
 
 
@@ -37,17 +37,17 @@
                 android:id="@+id/malaysian"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
+                android:buttonTint="@color/calculatorTheme"
                 android:onClick="onCitizenship"
                 android:text="@string/malaysian"
-                android:buttonTint="@color/calculatorTheme"
                 android:textColor="@color/calculatorTheme" />
 
             <RadioButton
                 android:id="@+id/nonmalaysian"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:onClick="onCitizenship"
                 android:buttonTint="@color/calculatorTheme"
+                android:onClick="onCitizenship"
                 android:text="@string/malaysiannot"
                 android:textColor="@color/calculatorTheme" />
         </RadioGroup>
@@ -80,38 +80,41 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
+                android:buttonTint="@color/calculatorTheme"
                 android:onClick="onRadioButtonClicked"
                 android:paddingStart="5dp"
                 android:paddingTop="2dp"
                 android:text="@string/sevenpercent"
                 android:textColor="@color/calculatorTheme"
-                android:buttonTint="@color/calculatorTheme"
+                android:visibility="gone"
                 tools:ignore="RtlSymmetry" />
 
             <RadioButton
                 android:id="@+id/kwspnine"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
+                android:buttonTint="@color/calculatorTheme"
+                android:gravity="center"
                 android:onClick="onRadioButtonClicked"
                 android:paddingStart="5dp"
                 android:paddingTop="2dp"
                 android:text="@string/ninepercent"
                 android:textAlignment="textStart"
                 android:textColor="@color/calculatorTheme"
-                android:buttonTint="@color/calculatorTheme"
                 tools:ignore="RtlSymmetry" />
 
             <RadioButton
                 android:id="@+id/kwspeleven"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
+                android:buttonTint="@color/calculatorTheme"
+                android:gravity="center"
                 android:onClick="onRadioButtonClicked"
                 android:paddingStart="5dp"
                 android:paddingTop="2dp"
                 android:text="@string/elevenpercent"
                 android:textAlignment="textStart"
                 android:textColor="@color/calculatorTheme"
-                android:buttonTint="@color/calculatorTheme"
                 tools:ignore="RtlSymmetry" />
 
         </RadioGroup>
