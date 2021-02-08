@@ -25,11 +25,35 @@
             android:paddingStart="5dp"
             tools:ignore="RtlSymmetry" />
 
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/malaysian"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:onClick="onCitizenship"
+                android:text="@string/malaysian"
+                android:textColor="@color/calculatorTheme" />
+
+            <RadioButton
+                android:id="@+id/nonmalaysian"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:onClick="onCitizenship"
+                android:text="@string/malaysiannot"
+                android:textColor="@color/calculatorTheme" />
+        </RadioGroup>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="35dp"
             android:layout_marginEnd="35dp"
             android:gravity="center"
             android:paddingStart="5dp"
@@ -39,11 +63,13 @@
 
 
         <RadioGroup
+            android:id="@+id/kwspcontribution"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_marginStart="35dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="35dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <RadioButton

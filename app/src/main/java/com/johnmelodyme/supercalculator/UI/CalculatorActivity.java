@@ -23,7 +23,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,14 +35,16 @@ import com.johnmelodyme.supercalculator.R;
 public class CalculatorActivity extends AppCompatActivity
 {
     private static final String TAG = "MYWAGES =>";
-    public boolean isRadioButtonChecked;
+    public boolean isRadioButtonChecked, isMalaysian;
     public double KWSP_CONTRIBUTION;
-    public String userSalaryInput;
+    public String userSalaryInput, nationality;
     public Intent onSurvey, onEmploymentAct;
     public EditText inputSalary;
     public TextView epfEmployee, epfEmployer, perkesoEmployee, perkesoEmployer;
     public TextView eisEmployee, eisEmployer, total;
+    public RadioGroup kwsp_contribution;
     public RadioButton epfSeven, epfNine, epfEleven;
+    public RadioButton malaysian, foreigner;
     public Button calculate, clickedButton;
 
     @SuppressLint("ResourceAsColor")
@@ -49,9 +53,16 @@ public class CalculatorActivity extends AppCompatActivity
         inputSalary = (EditText) findViewById(R.id.inputsalary);
         inputSalary.setHintTextColor(R.color.grey);
 
+        kwsp_contribution = (RadioGroup) findViewById(R.id.kwspcontribution);
+
         epfSeven = (RadioButton) findViewById(R.id.kwspseven);
         epfNine = (RadioButton) findViewById(R.id.kwspnine);
         epfEleven = (RadioButton) findViewById(R.id.kwspeleven);
+
+        malaysian = (RadioButton) findViewById(R.id.malaysian);
+        foreigner = (RadioButton) findViewById(R.id.nonmalaysian);
+        //* Set Malaysian As `Default`
+        malaysian.setChecked(true);
 
         epfEmployee = (TextView) findViewById(R.id.epfemployee);
         epfEmployer = (TextView) findViewById(R.id.epfemployer);
@@ -124,7 +135,41 @@ public class CalculatorActivity extends AppCompatActivity
         }
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("NonConstantResourceId")
+    public void onCitizenship(View view)
+    {
+        isMalaysian = ((RadioButton) view).isChecked();
+
+        switch (view.getId())
+        {
+            case R.id.malaysian:
+            {
+                isMalaysian = true;
+                Log.i(TAG, "onCitizenship:  Malaysian");
+                break;
+            }
+
+            case R.id.nonmalaysian:
+            {
+                isMalaysian = false;
+                Log.i(TAG, "onCitizenship:  Non-Malaysian");
+                break;
+            }
+
+            default:
+            {
+                Log.e(TAG, "onCitizenship: Come one, Pick a side!");
+                break;
+            }
+        }
+    }
+
+    /**
+     * @param view <p>
+     *             Reference : https://www.kwsp.gov.my/employer/contribution/all-about-your-responsibility
+     *             </p>
+     */
+    @SuppressLint({"SetTextI18n", "ResourceType"})
     public void onCalculateButton(View view)
     {
         clickedButton = (Button) view;
@@ -145,11 +190,11 @@ public class CalculatorActivity extends AppCompatActivity
         {
             Log.d(TAG, "onCalculateButton:  Calculation");
 
-            if (!(TextUtils.isEmpty(userSalaryInput)))
+            if (!(TextUtils.isEmpty(userSalaryInput)) && !(kwsp_contribution.getCheckedRadioButtonId() < 0))
             {
                 double INCOME = Double.parseDouble(userSalaryInput);
 
-                //* KWSP Value:
+                //* User Selected 7% KWSP Contribution
                 if (epfSeven.isChecked())
                 {
                     EMPLOYEE_KWSP = (int) (INCOME * Const.FORMER_CURRENT_KWSP_EMPLOYEE_RATE / 100);
@@ -183,39 +228,153 @@ public class CalculatorActivity extends AppCompatActivity
                     TOTAL_VALUE = String.valueOf(TOTAL);
                     total.setText(TOTAL_VALUE);
                 }
+                //* User Selected 9% KWSP Contribution
                 else if (epfNine.isChecked())
                 {
-                    EMPLOYEE_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
-                    EMPLOYER_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
-                    KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
-                    KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
-                    epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
-                    epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
-                    Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
+                    //* Malaysian Whose Salary > 5000;
+                    if (INCOME > 5000 && isMalaysian)
+                    {
+                        Log.i(TAG, "onCalculateButton: Malaysian Whose Salary > 5000");
+                        EMPLOYEE_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
+                        EMPLOYER_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE_SALARY_ABOVE_AVERAGE / 100);
+                        KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
+                        KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                        epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
+                        epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
+                        Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
+                        Log.i(TAG, "KWSP SALARY MORE THAN 5K");
 
-                    //* PERKESO Value:
-                    EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
-                    EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
-                    PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
-                    PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
-                    perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
-                    perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
-                    Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
+                        //* PERKESO Value:
+                        EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                        EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                        PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
+                        PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                        perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
+                        perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
+                        Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
 
-                    //* EIS Value:
-                    EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
-                    EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
-                    EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
-                    EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
-                    eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
-                    eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
-                    Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
+                        //* EIS Value:
+                        EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                        EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                        EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
+                        EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                        eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
+                        eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
+                        Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
 
-                    //* Total Value :
-                    TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
-                    TOTAL_VALUE = String.valueOf(TOTAL);
-                    total.setText(TOTAL_VALUE);
+                        //* Total Value :
+                        TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                        TOTAL_VALUE = String.valueOf(TOTAL);
+                        total.setText(TOTAL_VALUE);
+                    }
+                    //* Foreigner Whose Salary > 5000;
+                    else if (INCOME > 5000 && !isMalaysian)
+                    {
+                        Log.i(TAG, "onCalculateButton: Foreigner Whose Salary > 5000");
+                        EMPLOYEE_KWSP = (int) (INCOME * Const.FOREIGNER_CURRENT_KWSP_RATE_EMPLOYEE / 100);
+                        EMPLOYER_KWSP = (int) (INCOME * Const.INCOME_MORE_FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER);
+                        KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
+                        KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                        epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
+                        epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
+                        Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
+                        Log.i(TAG, "KWSP SALARY MORE THAN 5K");
+
+                        //* PERKESO Value:
+                        EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                        EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                        PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
+                        PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                        perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
+                        perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
+                        Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
+
+                        //* EIS Value:
+                        EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                        EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                        EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
+                        EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                        eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
+                        eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
+                        Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
+
+                        //* Total Value :
+                        TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                        TOTAL_VALUE = String.valueOf(TOTAL);
+                        total.setText(TOTAL_VALUE);
+                    }
+                    //* Foreigner Whose Salary < 5000;
+                    else if (INCOME < 5000 && !isMalaysian)
+                    {
+                        Log.i(TAG, "onCalculateButton: Foreigner Whose Salary < 5000");
+                        EMPLOYEE_KWSP = (int) (INCOME * Const.FOREIGNER_CURRENT_KWSP_RATE_EMPLOYEE / 100);
+                        EMPLOYER_KWSP = (int) (INCOME * Const.FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER);
+                        KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
+                        KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                        epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
+                        epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
+                        Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
+
+                        //* PERKESO Value:
+                        EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                        EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                        PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
+                        PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                        perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
+                        perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
+                        Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
+
+                        //* EIS Value:
+                        EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                        EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                        EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
+                        EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                        eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
+                        eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
+                        Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
+
+                        //* Total Value :
+                        TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                        TOTAL_VALUE = String.valueOf(TOTAL);
+                        total.setText(TOTAL_VALUE);
+                    }
+                    //* Malaysian Whose Salary < 5000;
+                    else
+                    {
+                        Log.i(TAG, "onCalculateButton:  Malaysian Whose Salary < 5000");
+                        EMPLOYEE_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
+                        EMPLOYER_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
+                        KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
+                        KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                        epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
+                        epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
+                        Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
+
+                        //* PERKESO Value:
+                        EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                        EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                        PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
+                        PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                        perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
+                        perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
+                        Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
+
+                        //* EIS Value:
+                        EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                        EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                        EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
+                        EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                        eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
+                        eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
+                        Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
+
+                        //* Total Value :
+                        TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                        TOTAL_VALUE = String.valueOf(TOTAL);
+                        total.setText(TOTAL_VALUE);
+                    }
                 }
+                //* User Selected 11% KWSP Contribution
                 else if (epfEleven.isChecked())
                 {
                     EMPLOYEE_KWSP = (int) (INCOME * Const.FORMER_KWSP_EMPLOYEE_RATE / 100);
@@ -248,14 +407,21 @@ public class CalculatorActivity extends AppCompatActivity
                     TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
                     TOTAL_VALUE = String.valueOf(TOTAL);
                     total.setText("MYR " + TOTAL_VALUE);
-                }
-                else
+                } else
                 {
                     Log.e(TAG, "onCalculateButton: No Value , What is User Doing man?");
                 }
-
-
             }
+            //* If User Didn't clicked the KWSP Contribution;
+            else if (kwsp_contribution.getCheckedRadioButtonId() < 0)
+            {
+                Toast.makeText(
+                        this,
+                        Const.EXCEPTION_RADIO_GROUP,
+                        Toast.LENGTH_LONG
+                ).show();
+            }
+            //* Raise Exception to User when User enter NOTHING;
             else
             {
                 inputSalary.setError("Please Enter Your Salary Before Any Deduction.");
@@ -285,6 +451,6 @@ public class CalculatorActivity extends AppCompatActivity
 
         // * Initiate User Interface Component
         initiateUserInterface();
-        
+
     }
 }

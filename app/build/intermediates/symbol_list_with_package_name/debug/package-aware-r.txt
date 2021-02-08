@@ -738,11 +738,13 @@ id line1
 id line3
 id listMode
 id list_item
+id malaysian
 id message
 id middle
 id multiply
 id never
 id none
+id nonmalaysian
 id normal
 id notification_background
 id notification_main_column
@@ -925,6 +927,8 @@ string esiemployee
 string esurvey
 string hint
 string hint_enter_salary
+string malaysian
+string malaysiannot
 string ninepercent
 string perkesoemployee
 string perkesoemployer
