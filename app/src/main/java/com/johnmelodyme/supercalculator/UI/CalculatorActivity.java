@@ -16,9 +16,13 @@ package com.johnmelodyme.supercalculator.UI;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,8 +41,8 @@ public class CalculatorActivity extends AppCompatActivity
     private static final String TAG = "MYWAGES =>";
     public boolean isRadioButtonChecked, isMalaysian;
     public double KWSP_CONTRIBUTION;
-    public String userSalaryInput, nationality;
-    public Intent onSurvey, onEmploymentAct;
+    public String userSalaryInput;
+    public Intent onSurvey, onEmploymentAct, onDonation, onAboutDev;
     public EditText inputSalary;
     public TextView epfEmployee, epfEmployer, perkesoEmployee, perkesoEmployer;
     public TextView eisEmployee, eisEmployer, total;
@@ -46,6 +50,7 @@ public class CalculatorActivity extends AppCompatActivity
     public RadioButton epfSeven, epfNine, epfEleven;
     public RadioButton malaysian, foreigner;
     public Button calculate, clickedButton;
+    private MenuInflater menuInflater;
 
     @SuppressLint("ResourceAsColor")
     public void initiateUserInterface()
@@ -85,6 +90,41 @@ public class CalculatorActivity extends AppCompatActivity
         calculate = (Button) findViewById(R.id.calculate);
 
         Log.i(TAG, "initiateUserInterface: User Interface Component Rendered");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.action_bar_items, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.donation:
+            {
+                onDonation = new Intent(Intent.ACTION_VIEW);
+                onDonation.setData(Uri.parse(Const.DONATION_URL));
+                startActivity(onDonation);
+                break;
+            }
+            case R.id.about:
+            {
+                onAboutDev = new Intent(Intent.ACTION_VIEW);
+                onAboutDev.setData(Uri.parse(Const.ABOUT_URL));
+                startActivity(onAboutDev);
+                break;
+            }
+            default:
+            {
+                return super.onOptionsItemSelected(item);
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @SuppressLint("NonConstantResourceId")

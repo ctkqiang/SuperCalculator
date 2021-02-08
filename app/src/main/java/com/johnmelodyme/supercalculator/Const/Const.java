@@ -21,11 +21,17 @@ public class Const
     public static String SURVEY_URL;
     public static String ON_START_VALUE;
     public static String EMPTY_VALUE_EXCEPTION;
+    public static String DONATION_URL;
+    public static String ABOUT_URL;
     public static String EMPLOYMENT_ACT_URL;
     public static String EXCEPTION_RADIO_GROUP;
+    public static String EXCEPTION_INCOME_EXCEED_500000;
 
     static
     {
+        ABOUT_URL = "https://johnmelodyme.github.io/";
+        DONATION_URL = "https://johnmelodyme.github.io/donate.html";
+        EXCEPTION_INCOME_EXCEED_500000 = "Donate To Me ?";
         EXCEPTION_RADIO_GROUP = "Please Select A Valid KWSP Contribution !";
         EMPLOYMENT_ACT_URL = "https://drive.google.com/file/d/1XHZr5vqweFdSvG29nsqG13WGPePnz23q/view?usp=sharing";
         EMPTY_VALUE_EXCEPTION = "Please Enter Your Salary Before Any Deduction.";
