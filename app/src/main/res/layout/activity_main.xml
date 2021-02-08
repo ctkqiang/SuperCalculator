@@ -31,6 +31,7 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="35dp"
+            android:gravity="center"
             android:paddingStart="5dp"
             android:text="@string/KWSPCONTRIBUTION"
             android:textColor="@color/calculatorTheme"
@@ -48,14 +49,12 @@
             <RadioButton
                 android:id="@+id/kwspseven"
                 android:layout_width="100dp"
-
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
                 android:onClick="onRadioButtonClicked"
                 android:paddingStart="5dp"
                 android:paddingTop="2dp"
                 android:text="@string/sevenpercent"
-                android:textAlignment="textStart"
                 android:textColor="@color/calculatorTheme"
                 tools:ignore="RtlSymmetry" />
 
@@ -97,6 +96,7 @@
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:lineSpacingExtra="12sp"
                 android:paddingStart="5dp"
                 android:paddingTop="10dp"
@@ -109,7 +109,7 @@
                 android:id="@+id/epfemployee"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:textAlignment="textStart"
+                android:gravity="center"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -125,6 +125,7 @@
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:lineSpacingExtra="12sp"
                 android:paddingStart="5dp"
                 android:paddingTop="10dp"
@@ -137,7 +138,8 @@
                 android:id="@+id/epfemployer"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:textAlignment="textStart"
+                android:gravity="center"
+                android:lineSpacingExtra="12sp"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -153,6 +155,7 @@
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:lineSpacingExtra="12sp"
                 android:paddingStart="5dp"
                 android:paddingTop="10dp"
@@ -165,7 +168,7 @@
                 android:id="@+id/perkesoemployee"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:textAlignment="textStart"
+                android:gravity="center"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -181,6 +184,7 @@
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:lineSpacingExtra="12sp"
                 android:paddingStart="5dp"
                 android:paddingTop="10dp"
@@ -193,7 +197,7 @@
                 android:id="@+id/perkesoemployer"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:textAlignment="textStart"
+                android:gravity="center"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -209,6 +213,7 @@
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:lineSpacingExtra="12sp"
                 android:paddingStart="5dp"
                 android:paddingTop="10dp"
@@ -221,7 +226,7 @@
                 android:id="@+id/eisemployee"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:textAlignment="textStart"
+                android:gravity="center"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -237,6 +242,7 @@
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:lineSpacingExtra="12sp"
                 android:paddingStart="5dp"
                 android:paddingTop="10dp"
@@ -249,7 +255,7 @@
                 android:id="@+id/eisemployer"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:textAlignment="textStart"
+                android:gravity="center"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -265,6 +271,7 @@
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:lineSpacingExtra="12sp"
                 android:paddingStart="5dp"
                 android:paddingTop="10dp"
@@ -277,7 +284,7 @@
                 android:id="@+id/total"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:textAlignment="textStart"
+                android:gravity="center"
                 android:textColor="@color/white" />
 
         </LinearLayout>

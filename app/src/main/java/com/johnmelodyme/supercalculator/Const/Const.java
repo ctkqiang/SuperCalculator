@@ -35,24 +35,26 @@ public class Const
     public static double FORMER_KWSP_EMPLOYEE_RATE;
     public static double FORMER_CURRENT_KWSP_EMPLOYEE_RATE;
     public static double CURRENT_KWSP_EMPLOYEE_RATE;
-    public static double FORMER_KWSP_EMPLOYER_RATE = (double) 0.00;
+    public static double FORMER_KWSP_EMPLOYER_RATE;
     public static double FORMER_CURRENT_KWSP_EMPLOYER_RATE;
-    public static double CURRENT_KWSP_EMPLOYER_RATE = (double) 0.00;
+    public static double CURRENT_KWSP_EMPLOYER_RATE;
     public static double EMPLOYEE_PERKESO_RATE;
-    public static double EMPLOYER_PERESO_RATE;
+    public static double EMPLOYER_PERKESO_RATE;
     public static double FOR_PERKESO_RATE;
     public static double EMPLOYEE_EIS_RATE;
     public static double EMPLOYER_EIS_RATE;
 
     static
     {
+        CURRENT_KWSP_EMPLOYER_RATE = (double) 0.00;
+        FORMER_KWSP_EMPLOYER_RATE = (double) 13;
         EMPLOYEE_EIS_RATE = 0.2;
         EMPLOYER_EIS_RATE = 0.2;
-        FORMER_CURRENT_KWSP_EMPLOYER_RATE = (double) 0.13;
-        FORMER_CURRENT_KWSP_EMPLOYEE_RATE = (double) 0.07;
-        FORMER_KWSP_EMPLOYEE_RATE = (double) 0.11;
-        CURRENT_KWSP_EMPLOYEE_RATE = (double) 0.09;
+        FORMER_CURRENT_KWSP_EMPLOYER_RATE = (double) 13;
+        FORMER_CURRENT_KWSP_EMPLOYEE_RATE = (double) 7;
+        FORMER_KWSP_EMPLOYEE_RATE = (double) 11;
+        CURRENT_KWSP_EMPLOYEE_RATE = (double) 9;
         EMPLOYEE_PERKESO_RATE = (double) 0.5;
-        EMPLOYER_PERESO_RATE = (double) 1.75;
+        EMPLOYER_PERKESO_RATE = (double) 1.75;
     }
 }
