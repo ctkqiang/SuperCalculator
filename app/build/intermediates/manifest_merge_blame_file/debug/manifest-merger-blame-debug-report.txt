@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.johnmelodyme.supercalculator"
+3    package="com.johnmelodyme.kwspcalculator"
 4    android:installLocation="preferExternal"
 5    android:versionCode="2"
 6    android:versionName="2.0" >
@@ -37,19 +37,19 @@
 23-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:16:9-40
 24        <activity
 24-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:18:9-20:50
-25            android:name="com.johnmelodyme.supercalculator.UI.EmploymentAct"
+25            android:name="com.johnmelodyme.kwspcalculator.UI.EmploymentAct"
 25-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:19:13-45
 26            android:theme="@style/WebAppTheme" />
 26-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:20:13-47
 27        <activity
 27-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:21:9-23:50
-28            android:name="com.johnmelodyme.supercalculator.UI.SurveyWeb"
+28            android:name="com.johnmelodyme.kwspcalculator.UI.SurveyWeb"
 28-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:22:13-41
 29            android:theme="@style/WebAppTheme" />
 29-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:23:13-47
 30        <activity
 30-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:24:9-32:20
-31            android:name="com.johnmelodyme.supercalculator.UI.CalculatorActivity"
+31            android:name="com.johnmelodyme.kwspcalculator.UI.CalculatorActivity"
 31-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:25:13-50
 32            android:screenOrientation="portrait" >
 32-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:26:13-49

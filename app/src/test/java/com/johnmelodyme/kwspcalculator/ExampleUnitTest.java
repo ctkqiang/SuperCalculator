@@ -1,4 +1,4 @@
-package com.johnmelodyme.supercalculator;
+package com.johnmelodyme.kwspcalculator;
 
 import org.junit.Test;
 

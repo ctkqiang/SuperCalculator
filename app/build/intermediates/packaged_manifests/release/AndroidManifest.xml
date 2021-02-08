@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.johnmelodyme.supercalculator"
+    package="com.johnmelodyme.kwspcalculator"
     android:installLocation="preferExternal"
     android:versionCode="2"
     android:versionName="2.0" >
@@ -21,13 +21,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.johnmelodyme.supercalculator.UI.EmploymentAct"
+            android:name="com.johnmelodyme.kwspcalculator.UI.EmploymentAct"
             android:theme="@style/WebAppTheme" />
         <activity
-            android:name="com.johnmelodyme.supercalculator.UI.SurveyWeb"
+            android:name="com.johnmelodyme.kwspcalculator.UI.SurveyWeb"
             android:theme="@style/WebAppTheme" />
         <activity
-            android:name="com.johnmelodyme.supercalculator.UI.CalculatorActivity"
+            android:name="com.johnmelodyme.kwspcalculator.UI.CalculatorActivity"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

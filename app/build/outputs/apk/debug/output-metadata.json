@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.johnmelodyme.supercalculator",
+  "applicationId": "com.johnmelodyme.kwspcalculator",
   "variantName": "processDebugResources",
   "elements": [
     {

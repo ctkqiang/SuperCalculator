@@ -1,4 +1,4 @@
-package com.johnmelodyme.supercalculator;
+package com.johnmelodyme.kwspcalculator;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.johnmelodyme.supercalculator", appContext.getPackageName());
+        assertEquals("com.johnmelodyme.kwspcalculator", appContext.getPackageName());
     }
 }

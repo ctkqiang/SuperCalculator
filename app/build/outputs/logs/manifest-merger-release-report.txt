@@ -78,19 +78,19 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/john
 		ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:11:9-35
 	android:theme
 		ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:16:9-40
-activity#com.johnmelodyme.supercalculator.UI.EmploymentAct
+activity#com.johnmelodyme.kwspcalculator.UI.EmploymentAct
 ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:18:9-20:50
 	android:theme
 		ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:20:13-47
 	android:name
 		ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:19:13-45
-activity#com.johnmelodyme.supercalculator.UI.SurveyWeb
+activity#com.johnmelodyme.kwspcalculator.UI.SurveyWeb
 ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:21:9-23:50
 	android:theme
 		ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:23:13-47
 	android:name
 		ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:22:13-41
-activity#com.johnmelodyme.supercalculator.UI.CalculatorActivity
+activity#com.johnmelodyme.kwspcalculator.UI.CalculatorActivity
 ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:24:9-32:20
 	android:screenOrientation
 		ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:26:13-49

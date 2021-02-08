@@ -1,4 +1,4 @@
-package com.johnmelodyme.supercalculator.Const;
+package com.johnmelodyme.kwspcalculator.Const;
 
 /**
  * Copyright © 2021 by John Melody Me

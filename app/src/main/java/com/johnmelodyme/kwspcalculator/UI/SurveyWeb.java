@@ -1,4 +1,4 @@
-package com.johnmelodyme.supercalculator.UI;
+package com.johnmelodyme.kwspcalculator.UI;
 
 /**
  * Copyright © 2021 by John Melody Me
@@ -22,8 +22,8 @@ import android.webkit.WebView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.johnmelodyme.supercalculator.Const.Const;
-import com.johnmelodyme.supercalculator.R;
+import com.johnmelodyme.kwspcalculator.Const.Const;
+import com.johnmelodyme.kwspcalculator.R;
 
 public class SurveyWeb extends AppCompatActivity
 {
