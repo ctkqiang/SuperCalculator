@@ -28,7 +28,7 @@ import com.johnmelodyme.supercalculator.R;
 public class EmploymentAct extends AppCompatActivity
 {
     private static final String TAG = "EmploymentAct";
-    private WebView webview;
+    public WebView webview;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override

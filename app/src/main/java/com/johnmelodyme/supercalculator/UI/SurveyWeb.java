@@ -28,7 +28,7 @@ import com.johnmelodyme.supercalculator.R;
 public class SurveyWeb extends AppCompatActivity
 {
     private static final String TAG = "SurveyWeb";
-    private WebView webview;
+    public WebView webview;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -36,7 +36,6 @@ public class SurveyWeb extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_web);
-
 
         webview = (WebView) findViewById(R.id.webView);
         webview.getSettings().setJavaScriptEnabled(true);

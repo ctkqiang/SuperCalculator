@@ -28,12 +28,12 @@
         "source": "/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/res/mipmap-hdpi/cal.png"
     },
     {
-        "merged": "/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/build/intermediates/res/merged/debug/layout_activity_survey_web.xml.flat",
-        "source": "/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/res/layout/activity_survey_web.xml"
-    },
-    {
         "merged": "/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/build/intermediates/res/merged/debug/layout_activity_employment.xml.flat",
         "source": "/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/res/layout/activity_employment.xml"
+    },
+    {
+        "merged": "/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/build/intermediates/res/merged/debug/layout_activity_survey_web.xml.flat",
+        "source": "/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/res/layout/activity_survey_web.xml"
     },
     {
         "merged": "/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",

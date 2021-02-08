@@ -55,17 +55,21 @@ public class Const
     public static double FOREIGNER_CURRENT_KWSP_RATE_EMPLOYEE;
     public static double FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER;
     public static double INCOME_MORE_FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER;
+    public static double KWSP_TWELVE_PERCENT;
+    public static double KWSP_THIRTEEN_PERCENT;
 
     static
     {
+        KWSP_THIRTEEN_PERCENT = (double) 13;
+        KWSP_TWELVE_PERCENT = (double) 12;
         INCOME_MORE_FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER = (double) 5.5;
         FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER = (double) 0.005;
         FOREIGNER_CURRENT_KWSP_RATE_EMPLOYEE = (double) 9;
         CURRENT_KWSP_EMPLOYEE_RATE_SALARY_ABOVE_AVERAGE = 12;
         CURRENT_KWSP_EMPLOYER_RATE = (double) 13;
-        FORMER_KWSP_EMPLOYER_RATE = (double) 13;
-        EMPLOYEE_EIS_RATE = 0.2;
-        EMPLOYER_EIS_RATE = 0.2;
+        FORMER_KWSP_EMPLOYER_RATE = (double) 12;
+        EMPLOYEE_EIS_RATE = (double) 0.2;
+        EMPLOYER_EIS_RATE = (double) 0.2;
         FORMER_CURRENT_KWSP_EMPLOYER_RATE = (double) 13;
         FORMER_CURRENT_KWSP_EMPLOYEE_RATE = (double) 7;
         FORMER_KWSP_EMPLOYEE_RATE = (double) 11;

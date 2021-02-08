@@ -23,6 +23,7 @@
             android:hint="@string/hint_enter_salary"
             android:inputType="numberDecimal"
             android:paddingStart="5dp"
+            android:imeOptions="flagNoExtractUi"
             android:textColor="@android:color/white"
             tools:ignore="RtlSymmetry" />
 
@@ -64,60 +65,85 @@
             android:textColor="@color/calculatorTheme"
             tools:ignore="RtlSymmetry" />
 
-
-        <RadioGroup
-            android:id="@+id/kwspcontribution"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="35dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="30dp">
 
-            <RadioButton
-                android:id="@+id/kwspseven"
-                android:layout_width="100dp"
+            <RadioGroup
+                android:id="@+id/kwspcontribution"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:buttonTint="@color/calculatorTheme"
-                android:onClick="onRadioButtonClicked"
-                android:paddingStart="5dp"
-                android:paddingTop="2dp"
-                android:text="@string/sevenpercent"
-                android:textColor="@color/calculatorTheme"
-                android:visibility="gone"
-                tools:ignore="RtlSymmetry" />
-
-            <RadioButton
-                android:id="@+id/kwspnine"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:buttonTint="@color/calculatorTheme"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="25dp"
                 android:gravity="center"
-                android:onClick="onRadioButtonClicked"
-                android:paddingStart="5dp"
-                android:paddingTop="2dp"
-                android:text="@string/ninepercent"
-                android:textAlignment="textStart"
-                android:textColor="@color/calculatorTheme"
-                tools:ignore="RtlSymmetry" />
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/kwspeleven"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:buttonTint="@color/calculatorTheme"
-                android:gravity="center"
-                android:onClick="onRadioButtonClicked"
-                android:paddingStart="5dp"
-                android:paddingTop="2dp"
-                android:text="@string/elevenpercent"
-                android:textAlignment="textStart"
-                android:textColor="@color/calculatorTheme"
-                tools:ignore="RtlSymmetry" />
+                <RadioButton
+                    android:id="@+id/kwspseven"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/calculatorTheme"
+                    android:onClick="onRadioButtonClicked"
+                    android:paddingStart="5dp"
+                    android:paddingTop="2dp"
+                    android:text="@string/sevenpercent"
+                    android:textColor="@color/calculatorTheme"
+                    tools:ignore="RtlSymmetry" />
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/kwspnine"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/calculatorTheme"
+                    android:gravity="center"
+                    android:onClick="onRadioButtonClicked"
+                    android:paddingStart="5dp"
+                    android:paddingTop="2dp"
+                    android:text="@string/ninepercent"
+                    android:textColor="@color/calculatorTheme"
+                    tools:ignore="RtlSymmetry" />
+
+                <RadioButton
+                    android:id="@+id/kwspeleven"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/calculatorTheme"
+                    android:gravity="center"
+                    android:onClick="onRadioButtonClicked"
+                    android:paddingStart="5dp"
+                    android:paddingTop="2dp"
+                    android:text="@string/elevenpercent"
+                    android:textColor="@color/calculatorTheme"
+                    tools:ignore="RtlSymmetry" />
+
+                <RadioButton
+                    android:id="@+id/kwsptwelve"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/calculatorTheme"
+                    android:gravity="center"
+                    android:onClick="onRadioButtonClicked"
+                    android:paddingStart="5dp"
+                    android:paddingTop="2dp"
+                    android:text="@string/twelvepercent"
+                    android:textColor="@color/calculatorTheme"
+                    tools:ignore="RtlSymmetry" />
+
+                <RadioButton
+                    android:id="@+id/kwspthirteen"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/calculatorTheme"
+                    android:gravity="center"
+                    android:onClick="onRadioButtonClicked"
+                    android:paddingStart="5dp"
+                    android:paddingTop="2dp"
+                    android:text="@string/thirthteenpercent"
+                    android:textColor="@color/calculatorTheme"
+                    tools:ignore="RtlSymmetry" />
+            </RadioGroup>
+        </HorizontalScrollView>
 
 
         <LinearLayout

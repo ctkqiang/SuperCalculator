@@ -33,38 +33,37 @@
 21-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:14:9-40
 22        android:supportsRtl="true"
 22-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:15:9-35
-23        android:testOnly="true"
-24        android:theme="@style/AppTheme" >
-24-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:16:9-40
-25        <activity
-25-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:18:9-20:50
-26            android:name="com.johnmelodyme.supercalculator.UI.EmploymentAct"
-26-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:19:13-45
-27            android:theme="@style/WebAppTheme" />
-27-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:20:13-47
-28        <activity
-28-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:21:9-23:50
-29            android:name="com.johnmelodyme.supercalculator.UI.SurveyWeb"
-29-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:22:13-41
-30            android:theme="@style/WebAppTheme" />
-30-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:23:13-47
-31        <activity
-31-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:24:9-32:20
-32            android:name="com.johnmelodyme.supercalculator.UI.CalculatorActivity"
-32-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:25:13-50
-33            android:screenOrientation="portrait" >
-33-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:26:13-49
-34            <intent-filter>
-34-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:27:13-31:29
-35                <action android:name="android.intent.action.MAIN" />
-35-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:28:17-69
-35-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:28:25-66
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:30:17-77
-37-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:30:27-74
-38            </intent-filter>
-39        </activity>
-40    </application>
-41
-42</manifest>
+23        android:theme="@style/AppTheme" >
+23-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:16:9-40
+24        <activity
+24-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:18:9-20:50
+25            android:name="com.johnmelodyme.supercalculator.UI.EmploymentAct"
+25-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:19:13-45
+26            android:theme="@style/WebAppTheme" />
+26-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:20:13-47
+27        <activity
+27-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:21:9-23:50
+28            android:name="com.johnmelodyme.supercalculator.UI.SurveyWeb"
+28-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:22:13-41
+29            android:theme="@style/WebAppTheme" />
+29-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:23:13-47
+30        <activity
+30-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:24:9-32:20
+31            android:name="com.johnmelodyme.supercalculator.UI.CalculatorActivity"
+31-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:25:13-50
+32            android:screenOrientation="portrait" >
+32-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:26:13-49
+33            <intent-filter>
+33-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:27:13-31:29
+34                <action android:name="android.intent.action.MAIN" />
+34-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:28:17-69
+34-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:28:25-66
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:30:17-77
+36-->/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:30:27-74
+37            </intent-filter>
+38        </activity>
+39    </application>
+40
+41</manifest>

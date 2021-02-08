@@ -15,15 +15,19 @@ package com.johnmelodyme.supercalculator.UI;
  */
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -47,10 +51,10 @@ public class CalculatorActivity extends AppCompatActivity
     public TextView epfEmployee, epfEmployer, perkesoEmployee, perkesoEmployer;
     public TextView eisEmployee, eisEmployer, total;
     public RadioGroup kwsp_contribution;
-    public RadioButton epfSeven, epfNine, epfEleven;
+    public RadioButton epfSeven, epfNine, epfEleven, epfTwelve, epfThirteen;
     public RadioButton malaysian, foreigner;
     public Button calculate, clickedButton;
-    private MenuInflater menuInflater;
+    public MenuInflater menuInflater;
 
     @SuppressLint("ResourceAsColor")
     public void initiateUserInterface()
@@ -63,6 +67,8 @@ public class CalculatorActivity extends AppCompatActivity
         epfSeven = (RadioButton) findViewById(R.id.kwspseven);
         epfNine = (RadioButton) findViewById(R.id.kwspnine);
         epfEleven = (RadioButton) findViewById(R.id.kwspeleven);
+        epfTwelve = (RadioButton) findViewById(R.id.kwsptwelve);
+        epfThirteen = (RadioButton) findViewById(R.id.kwspthirteen);
 
         malaysian = (RadioButton) findViewById(R.id.malaysian);
         foreigner = (RadioButton) findViewById(R.id.nonmalaysian);
@@ -77,6 +83,8 @@ public class CalculatorActivity extends AppCompatActivity
         eisEmployer = (TextView) findViewById(R.id.eisemployer);
 
         total = (TextView) findViewById(R.id.total);
+
+        inputSalary.setText(null);
 
         epfEmployee.setText(Const.ON_START_VALUE);
         epfEmployer.setText(Const.ON_START_VALUE);
@@ -167,6 +175,28 @@ public class CalculatorActivity extends AppCompatActivity
                 break;
             }
 
+            case R.id.kwsptwelve:
+            {
+                if (isRadioButtonChecked)
+                {
+                    KWSP_CONTRIBUTION = Const.KWSP_TWELVE_PERCENT;
+                    Log.d(TAG, "onRadioButtonClicked: " + KWSP_CONTRIBUTION + " EPF Contribution Selected ");
+                }
+
+                break;
+            }
+
+            case R.id.kwspthirteen:
+            {
+                if (isRadioButtonChecked)
+                {
+                    KWSP_CONTRIBUTION = Const.KWSP_THIRTEEN_PERCENT;
+                    Log.d(TAG, "onRadioButtonClicked: " + KWSP_CONTRIBUTION + " EPF Contribution Selected ");
+                }
+
+                break;
+            }
+
             default:
             {
                 Log.e(TAG, "onRadioButtonClicked: What User is Clicking?");
@@ -206,25 +236,26 @@ public class CalculatorActivity extends AppCompatActivity
 
     /**
      * @param view <p>
-     *             Reference : https://www.kwsp.gov.my/employer/contribution/all-about-your-responsibility
+     *             <br> Reference : https://www.kwsp.gov.my/employer/contribution/all-about-your-responsibility
+     *             <br> Reference : https://www.nbc.com.my/socso/socso-table-rates-jadual-caruman-socso.html
+     *             <br> Reference: https://blog.talenox.com/calculate-eis-contribution/
      *             </p>
      */
-    @SuppressLint({"SetTextI18n", "ResourceType"})
+    @SuppressLint({"SetTextI18n", "ResourceType", "DefaultLocale"})
     public void onCalculateButton(View view)
     {
         clickedButton = (Button) view;
         userSalaryInput = inputSalary.getText().toString();
 
-        int EMPLOYEE_KWSP, EMPLOYER_KWSP;
-        int EMPLOYEE_PERKESO, EMPLOYER_PERKESO;
-        int EMPLOYEE_EIS, EMPLOYER_EIS;
-        int TOTAL;
+        double EMPLOYEE_KWSP, EMPLOYER_KWSP;
+        double EMPLOYEE_PERKESO, EMPLOYER_PERKESO;
+        double EMPLOYEE_EIS, EMPLOYER_EIS;
+        double TOTAL;
 
         String KWSP_EMPLOYEE_VALUE, KWSP_EMPLOYER_VALUE;
         String PERKESO_EMPLOYEE_VALUE, PERKESO_EMPLOYER_VALUE;
         String EIS_EMPLOYEE_VALUE, EIS_EMPLOYER_VALUE;
         String TOTAL_VALUE;
-
 
         if (clickedButton.getId() == R.id.calculate)
         {
@@ -237,35 +268,35 @@ public class CalculatorActivity extends AppCompatActivity
                 //* User Selected 7% KWSP Contribution
                 if (epfSeven.isChecked())
                 {
-                    EMPLOYEE_KWSP = (int) (INCOME * Const.FORMER_CURRENT_KWSP_EMPLOYEE_RATE / 100);
-                    EMPLOYER_KWSP = (int) (INCOME * Const.FORMER_CURRENT_KWSP_EMPLOYER_RATE / 100);
-                    KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
-                    KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                    EMPLOYEE_KWSP = (double) (INCOME * Const.FORMER_CURRENT_KWSP_EMPLOYEE_RATE / 100);
+                    EMPLOYER_KWSP = (double) (INCOME * Const.FORMER_CURRENT_KWSP_EMPLOYER_RATE / 100);
+                    KWSP_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_KWSP);
+                    KWSP_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_KWSP);
                     epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
                     epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
                     Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
 
                     //* PERKESO Value:
-                    EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
-                    EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
-                    PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
-                    PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                    EMPLOYEE_PERKESO = (double) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                    EMPLOYER_PERKESO = (double) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                    PERKESO_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_PERKESO);
+                    PERKESO_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_PERKESO);
                     perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
                     perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
                     Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
 
                     //* EIS Value:
-                    EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
-                    EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
-                    EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
-                    EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                    EMPLOYEE_EIS = (double) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                    EMPLOYER_EIS = (double) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                    EIS_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_EIS);
+                    EIS_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_EIS);
                     eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
                     eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
                     Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
 
                     //* Total Value :
-                    TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
-                    TOTAL_VALUE = String.valueOf(TOTAL);
+                    TOTAL = (double) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                    TOTAL_VALUE = String.format("%.2f", TOTAL);
                     total.setText(TOTAL_VALUE);
                 }
                 //* User Selected 9% KWSP Contribution
@@ -275,177 +306,245 @@ public class CalculatorActivity extends AppCompatActivity
                     if (INCOME > 5000 && isMalaysian)
                     {
                         Log.i(TAG, "onCalculateButton: Malaysian Whose Salary > 5000");
-                        EMPLOYEE_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
-                        EMPLOYER_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE_SALARY_ABOVE_AVERAGE / 100);
-                        KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
-                        KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                        EMPLOYEE_KWSP = (double) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
+                        EMPLOYER_KWSP = (double) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE_SALARY_ABOVE_AVERAGE / 100);
+                        KWSP_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_KWSP);
+                        KWSP_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_KWSP);
                         epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
                         epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
                         Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
                         Log.i(TAG, "KWSP SALARY MORE THAN 5K");
 
                         //* PERKESO Value:
-                        EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
-                        EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
-                        PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
-                        PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                        EMPLOYEE_PERKESO = (double) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                        EMPLOYER_PERKESO = (double) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                        PERKESO_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_PERKESO);
+                        PERKESO_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_PERKESO);
                         perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
                         perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
                         Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
 
                         //* EIS Value:
-                        EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
-                        EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
-                        EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
-                        EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                        EMPLOYEE_EIS = (double) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                        EMPLOYER_EIS = (double) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                        EIS_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_EIS);
+                        EIS_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_EIS);
                         eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
                         eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
                         Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
 
                         //* Total Value :
-                        TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
-                        TOTAL_VALUE = String.valueOf(TOTAL);
+                        TOTAL = (double) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                        TOTAL_VALUE = String.format("%.2f", TOTAL);
                         total.setText(TOTAL_VALUE);
                     }
                     //* Foreigner Whose Salary > 5000;
                     else if (INCOME > 5000 && !isMalaysian)
                     {
                         Log.i(TAG, "onCalculateButton: Foreigner Whose Salary > 5000");
-                        EMPLOYEE_KWSP = (int) (INCOME * Const.FOREIGNER_CURRENT_KWSP_RATE_EMPLOYEE / 100);
-                        EMPLOYER_KWSP = (int) (INCOME * Const.INCOME_MORE_FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER);
-                        KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
-                        KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                        EMPLOYEE_KWSP = (double) (INCOME * Const.FOREIGNER_CURRENT_KWSP_RATE_EMPLOYEE / 100);
+                        EMPLOYER_KWSP = (double) (INCOME * Const.INCOME_MORE_FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER);
+                        KWSP_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_KWSP);
+                        KWSP_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_KWSP);
                         epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
                         epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
                         Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
                         Log.i(TAG, "KWSP SALARY MORE THAN 5K");
 
                         //* PERKESO Value:
-                        EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
-                        EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
-                        PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
-                        PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                        EMPLOYEE_PERKESO = (double) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                        EMPLOYER_PERKESO = (double) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                        PERKESO_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_PERKESO);
+                        PERKESO_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_PERKESO);
                         perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
                         perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
                         Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
 
                         //* EIS Value:
-                        EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
-                        EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
-                        EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
-                        EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                        EMPLOYEE_EIS = (double) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                        EMPLOYER_EIS = (double) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                        EIS_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_EIS);
+                        EIS_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_EIS);
                         eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
                         eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
                         Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
 
                         //* Total Value :
-                        TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
-                        TOTAL_VALUE = String.valueOf(TOTAL);
+                        TOTAL = (double) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                        TOTAL_VALUE = String.format("%.2f", TOTAL);
                         total.setText(TOTAL_VALUE);
                     }
                     //* Foreigner Whose Salary < 5000;
                     else if (INCOME < 5000 && !isMalaysian)
                     {
                         Log.i(TAG, "onCalculateButton: Foreigner Whose Salary < 5000");
-                        EMPLOYEE_KWSP = (int) (INCOME * Const.FOREIGNER_CURRENT_KWSP_RATE_EMPLOYEE / 100);
-                        EMPLOYER_KWSP = (int) (INCOME * Const.FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER);
-                        KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
-                        KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                        EMPLOYEE_KWSP = (double) (INCOME * Const.FOREIGNER_CURRENT_KWSP_RATE_EMPLOYEE / 100);
+                        EMPLOYER_KWSP = (double) (INCOME * Const.FOREIGNER_CURRENT_KWSP_RATE_EMPLOYER);
+                        KWSP_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_KWSP);
+                        KWSP_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_KWSP);
                         epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
                         epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
                         Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
 
                         //* PERKESO Value:
-                        EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
-                        EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
-                        PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
-                        PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                        EMPLOYEE_PERKESO = (double) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                        EMPLOYER_PERKESO = (double) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                        PERKESO_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_PERKESO);
+                        PERKESO_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_PERKESO);
                         perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
                         perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
                         Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
 
                         //* EIS Value:
-                        EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
-                        EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
-                        EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
-                        EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                        EMPLOYEE_EIS = (double) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                        EMPLOYER_EIS = (double) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                        EIS_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_EIS);
+                        EIS_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_EIS);
                         eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
                         eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
                         Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
 
                         //* Total Value :
-                        TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
-                        TOTAL_VALUE = String.valueOf(TOTAL);
+                        TOTAL = (double) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                        TOTAL_VALUE = String.format("%.2f", TOTAL);
                         total.setText(TOTAL_VALUE);
                     }
                     //* Malaysian Whose Salary < 5000;
                     else
                     {
                         Log.i(TAG, "onCalculateButton:  Malaysian Whose Salary < 5000");
-                        EMPLOYEE_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
-                        EMPLOYER_KWSP = (int) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
-                        KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
-                        KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                        EMPLOYEE_KWSP = (double) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
+                        EMPLOYER_KWSP = (double) (INCOME * Const.CURRENT_KWSP_EMPLOYEE_RATE / 100);
+                        KWSP_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_KWSP);
+                        KWSP_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_KWSP);
                         epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
                         epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
                         Log.i(TAG, "Value =>" + KWSP_EMPLOYEE_VALUE + EMPLOYER_KWSP);
 
                         //* PERKESO Value:
-                        EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
-                        EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
-                        PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
-                        PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                        EMPLOYEE_PERKESO = (double) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                        EMPLOYER_PERKESO = (double) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                        PERKESO_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_PERKESO);
+                        PERKESO_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_PERKESO);
                         perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
                         perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
                         Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
 
                         //* EIS Value:
-                        EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
-                        EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
-                        EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
-                        EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                        EMPLOYEE_EIS = (double) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                        EMPLOYER_EIS = (double) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                        EIS_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_EIS);
+                        EIS_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_EIS);
                         eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
                         eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
                         Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
 
                         //* Total Value :
-                        TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
-                        TOTAL_VALUE = String.valueOf(TOTAL);
+                        TOTAL = (double) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                        TOTAL_VALUE = String.format("%.2f", TOTAL);
                         total.setText(TOTAL_VALUE);
                     }
                 }
                 //* User Selected 11% KWSP Contribution
                 else if (epfEleven.isChecked())
                 {
-                    EMPLOYEE_KWSP = (int) (INCOME * Const.FORMER_KWSP_EMPLOYEE_RATE / 100);
-                    EMPLOYER_KWSP = (int) (INCOME * Const.FORMER_KWSP_EMPLOYER_RATE / 100);
-                    KWSP_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_KWSP);
-                    KWSP_EMPLOYER_VALUE = String.valueOf(EMPLOYER_KWSP);
+                    EMPLOYEE_KWSP = (double) (INCOME * Const.FORMER_KWSP_EMPLOYEE_RATE / 100);
+                    EMPLOYER_KWSP = (double) (INCOME * Const.FORMER_KWSP_EMPLOYER_RATE / 100);
+                    KWSP_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_KWSP);
+                    KWSP_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_KWSP);
                     epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
                     epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
                     Log.i(TAG, "KWSP Value =>" + KWSP_EMPLOYEE_VALUE + KWSP_EMPLOYER_VALUE);
 
                     //* PERKESO Value:
-                    EMPLOYEE_PERKESO = (int) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
-                    EMPLOYER_PERKESO = (int) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
-                    PERKESO_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_PERKESO);
-                    PERKESO_EMPLOYER_VALUE = String.valueOf(EMPLOYER_PERKESO);
+                    EMPLOYEE_PERKESO = (double) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                    EMPLOYER_PERKESO = (double) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                    PERKESO_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_PERKESO);
+                    PERKESO_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_PERKESO);
                     perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
                     perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
                     Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
 
                     //* EIS Value:
-                    EMPLOYEE_EIS = (int) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
-                    EMPLOYER_EIS = (int) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
-                    EIS_EMPLOYEE_VALUE = String.valueOf(EMPLOYEE_EIS);
-                    EIS_EMPLOYER_VALUE = String.valueOf(EMPLOYER_EIS);
+                    EMPLOYEE_EIS = (double) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                    EMPLOYER_EIS = (double) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                    EIS_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_EIS);
+                    EIS_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_EIS);
                     eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
                     eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
                     Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
 
                     //* Total Value :
-                    TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
-                    TOTAL_VALUE = String.valueOf(TOTAL);
+                    TOTAL = (double) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                    TOTAL_VALUE = String.format("%.2f", TOTAL);
+                    total.setText("MYR " + TOTAL_VALUE);
+                }
+                //* User Selected 12% KWSP Contribution
+                else if (epfTwelve.isChecked())
+                {
+                    EMPLOYEE_KWSP = (double) (INCOME * Const.KWSP_TWELVE_PERCENT / 100);
+                    EMPLOYER_KWSP = (double) (INCOME * Const.KWSP_THIRTEEN_PERCENT / 100);
+                    KWSP_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_KWSP);
+                    KWSP_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_KWSP);
+                    epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
+                    epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
+                    Log.i(TAG, "KWSP Value =>" + KWSP_EMPLOYEE_VALUE + KWSP_EMPLOYER_VALUE);
+
+                    //* PERKESO Value:
+                    EMPLOYEE_PERKESO = (double) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                    EMPLOYER_PERKESO = (double) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                    PERKESO_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_PERKESO);
+                    PERKESO_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_PERKESO);
+                    perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
+                    perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
+                    Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
+
+                    //* EIS Value:
+                    EMPLOYEE_EIS = (double) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                    EMPLOYER_EIS = (double) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                    EIS_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_EIS);
+                    EIS_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_EIS);
+                    eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
+                    eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
+                    Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
+
+                    //* Total Value :
+                    TOTAL = (double) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                    TOTAL_VALUE = String.format("%.2f", TOTAL);
+                    total.setText("MYR " + TOTAL_VALUE);
+                }
+                //* User Selected 13% KWSP Contribution
+                else if (epfThirteen.isChecked())
+                {
+                    EMPLOYEE_KWSP = (double) (INCOME * Const.KWSP_THIRTEEN_PERCENT / 100);
+                    EMPLOYER_KWSP = (double) (INCOME * Const.KWSP_THIRTEEN_PERCENT / 100);
+                    KWSP_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_KWSP);
+                    KWSP_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_KWSP);
+                    epfEmployee.setText("MYR " + KWSP_EMPLOYEE_VALUE);
+                    epfEmployer.setText("MYR " + KWSP_EMPLOYER_VALUE);
+                    Log.i(TAG, "KWSP Value =>" + KWSP_EMPLOYEE_VALUE + KWSP_EMPLOYER_VALUE);
+
+                    //* PERKESO Value:
+                    EMPLOYEE_PERKESO = (double) (INCOME * Const.EMPLOYEE_PERKESO_RATE / 100);
+                    EMPLOYER_PERKESO = (double) (INCOME * Const.EMPLOYER_PERKESO_RATE / 100);
+                    PERKESO_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_PERKESO);
+                    PERKESO_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_PERKESO);
+                    perkesoEmployee.setText("MYR " + PERKESO_EMPLOYEE_VALUE);
+                    perkesoEmployer.setText("MYR " + PERKESO_EMPLOYER_VALUE);
+                    Log.i(TAG, "PERKESO Value =>" + PERKESO_EMPLOYEE_VALUE + PERKESO_EMPLOYER_VALUE);
+
+                    //* EIS Value:
+                    EMPLOYEE_EIS = (double) (INCOME * Const.EMPLOYEE_EIS_RATE / 100);
+                    EMPLOYER_EIS = (double) (INCOME * Const.EMPLOYER_EIS_RATE / 100);
+                    EIS_EMPLOYEE_VALUE = String.format("%.2f", EMPLOYEE_EIS);
+                    EIS_EMPLOYER_VALUE = String.format("%.2f", EMPLOYER_EIS);
+                    eisEmployee.setText("MYR " + EIS_EMPLOYEE_VALUE);
+                    eisEmployer.setText("MYR " + EIS_EMPLOYER_VALUE);
+                    Log.i(TAG, "EIS Value =>" + EIS_EMPLOYEE_VALUE + EIS_EMPLOYER_VALUE);
+
+                    //* Total Value :
+                    TOTAL = (double) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
+                    TOTAL_VALUE = String.format("%.2f", TOTAL);
                     total.setText("MYR " + TOTAL_VALUE);
                 }
                 else
@@ -493,5 +592,43 @@ public class CalculatorActivity extends AppCompatActivity
         // * Initiate User Interface Component
         initiateUserInterface();
 
+        // * Clear All;
+        calculate.setOnLongClickListener(new View.OnLongClickListener()
+        {
+            @Override
+            public boolean onLongClick(View v)
+            {
+                initiateUserInterface();
+                return true;
+            }
+        });
+
+        // * Add Action Key Listener;
+        inputSalary.setOnEditorActionListener(new TextView.OnEditorActionListener()
+        {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_SEND)
+                {
+                    onUserInteraction();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
+    }
+
+    // * Hide Keyboard;
+    @Override
+    public void onUserInteraction()
+    {
+        if (getCurrentFocus() != null)
+        {
+            InputMethodManager imm;
+            imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 1);
+        }
     }
 }
