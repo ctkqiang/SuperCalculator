@@ -31,13 +31,40 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c36df8-4f9f-46c9-9216-8d4a73be3fc6" name="Default Changelist" comment="" />
+    <list default="true" id="76c36df8-4f9f-46c9-9216-8d4a73be3fc6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifest/debug/out/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifest/debug/out/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/packaged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/packaged_manifests/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/63c845cbbee87a504ce02d00f53c3b92a1ab6bd5170049b1f11c369f1aae5ca2_0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/63c845cbbee87a504ce02d00f53c3b92a1ab6bd5170049b1f11c369f1aae5ca2_0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/63c845cbbee87a504ce02d00f53c3b92a1ab6bd5170049b1f11c369f1aae5ca2_1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/63c845cbbee87a504ce02d00f53c3b92a1ab6bd5170049b1f11c369f1aae5ca2_1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/BuildConfig.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/BuildConfig.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/Const/Const.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/Const/Const.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/UI/CalculatorActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/UI/CalculatorActivity.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/UI/EmploymentAct.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/UI/EmploymentAct.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/UI/SurveyWeb.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/johnmelodyme/supercalculator/UI/SurveyWeb.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[59c2bd61]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[6342dfff]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -123,7 +150,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Super Calculator.Super_Calculator.app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="Super Calculator.Super_Calculator.app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="Super Calculator.Super_Calculator.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -181,7 +208,7 @@
       </method>
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="Super_Calculator.app" />
+      <module name="Super Calculator.Super_Calculator.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -286,6 +313,14 @@
       <screen x="0" y="23" width="1280" height="732" />
     </state>
     <state x="165" y="128" key="#PSD/0.23.1280.732@0.23.1280.732" timestamp="1612755191179" />
+    <state x="389" y="23" key="#app" timestamp="1612771193127">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state x="389" y="23" key="#app/0.23.1280.732@0.23.1280.732" timestamp="1612771193127" />
+    <state x="104" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612771115910">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state x="104" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.732@0.23.1280.732" timestamp="1612771115910" />
     <state x="228" y="151" key="AndroidCreateResourceDirectoryDialog" timestamp="1612765378949">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
@@ -294,25 +329,25 @@
       <screen x="0" y="23" width="1280" height="742" />
     </state>
     <state x="485" y="181" key="AndroidCreateXmlResourceDialog/0.23.1280.742@0.23.1280.742" timestamp="1612624535722" />
-    <state width="1240" height="250" key="GridCell.Tab.0.bottom" timestamp="1612766461678">
+    <state width="1240" height="178" key="GridCell.Tab.0.bottom" timestamp="1612771180854">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="1240" height="250" key="GridCell.Tab.0.bottom/0.23.1280.732@0.23.1280.732" timestamp="1612766461678" />
+    <state width="1240" height="178" key="GridCell.Tab.0.bottom/0.23.1280.732@0.23.1280.732" timestamp="1612771180854" />
     <state width="1238" height="179" key="GridCell.Tab.0.bottom/0.23.1280.742@0.23.1280.742" timestamp="1612634200954" />
-    <state width="1240" height="250" key="GridCell.Tab.0.center" timestamp="1612766461677">
+    <state width="1240" height="178" key="GridCell.Tab.0.center" timestamp="1612771180853">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="1240" height="250" key="GridCell.Tab.0.center/0.23.1280.732@0.23.1280.732" timestamp="1612766461677" />
+    <state width="1240" height="178" key="GridCell.Tab.0.center/0.23.1280.732@0.23.1280.732" timestamp="1612771180853" />
     <state width="1238" height="179" key="GridCell.Tab.0.center/0.23.1280.742@0.23.1280.742" timestamp="1612634200953" />
-    <state width="1240" height="250" key="GridCell.Tab.0.left" timestamp="1612766461676">
+    <state width="1240" height="178" key="GridCell.Tab.0.left" timestamp="1612771180852">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="1240" height="250" key="GridCell.Tab.0.left/0.23.1280.732@0.23.1280.732" timestamp="1612766461676" />
+    <state width="1240" height="178" key="GridCell.Tab.0.left/0.23.1280.732@0.23.1280.732" timestamp="1612771180852" />
     <state width="1238" height="179" key="GridCell.Tab.0.left/0.23.1280.742@0.23.1280.742" timestamp="1612634200953" />
-    <state width="1240" height="250" key="GridCell.Tab.0.right" timestamp="1612766461678">
+    <state width="1240" height="178" key="GridCell.Tab.0.right" timestamp="1612771180853">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="1240" height="250" key="GridCell.Tab.0.right/0.23.1280.732@0.23.1280.732" timestamp="1612766461678" />
+    <state width="1240" height="178" key="GridCell.Tab.0.right/0.23.1280.732@0.23.1280.732" timestamp="1612771180853" />
     <state width="1238" height="179" key="GridCell.Tab.0.right/0.23.1280.742@0.23.1280.742" timestamp="1612634200954" />
     <state x="228" y="141" key="IDE.errors.dialog" timestamp="1612633679848">
       <screen x="0" y="23" width="1280" height="742" />
