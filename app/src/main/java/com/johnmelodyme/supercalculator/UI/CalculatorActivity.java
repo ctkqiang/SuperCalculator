@@ -447,7 +447,8 @@ public class CalculatorActivity extends AppCompatActivity
                     TOTAL = (int) (INCOME - EMPLOYEE_EIS - EMPLOYEE_KWSP - EMPLOYEE_PERKESO);
                     TOTAL_VALUE = String.valueOf(TOTAL);
                     total.setText("MYR " + TOTAL_VALUE);
-                } else
+                }
+                else
                 {
                     Log.e(TAG, "...");
                 }

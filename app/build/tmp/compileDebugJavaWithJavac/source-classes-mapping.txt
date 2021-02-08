@@ -1,10 +1,10 @@
 com/johnmelodyme/supercalculator/BuildConfig.java
  com.johnmelodyme.supercalculator.BuildConfig
-com/johnmelodyme/supercalculator/UI/CalculatorActivity.java
- com.johnmelodyme.supercalculator.UI.CalculatorActivity
+com/johnmelodyme/supercalculator/UI/SurveyWeb.java
+ com.johnmelodyme.supercalculator.UI.SurveyWeb
 com/johnmelodyme/supercalculator/Const/Const.java
  com.johnmelodyme.supercalculator.Const.Const
 com/johnmelodyme/supercalculator/UI/EmploymentAct.java
  com.johnmelodyme.supercalculator.UI.EmploymentAct
-com/johnmelodyme/supercalculator/UI/SurveyWeb.java
- com.johnmelodyme.supercalculator.UI.SurveyWeb
+com/johnmelodyme/supercalculator/UI/CalculatorActivity.java
+ com.johnmelodyme.supercalculator.UI.CalculatorActivity
