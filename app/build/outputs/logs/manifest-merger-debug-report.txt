@@ -29,7 +29,7 @@ INJECTED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/mai
 INJECTED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:2:1-35:12
 INJECTED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:2:1-35:12
 	package
-		ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:4:5-47
+		ADDED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml:4:5-46
 		INJECTED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/johnmelodyme/Documents/Projects/SuperCalculator/app/src/main/AndroidManifest.xml
 	android:versionName

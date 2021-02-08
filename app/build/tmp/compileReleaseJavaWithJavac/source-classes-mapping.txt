@@ -1,12 +1,12 @@
-com/johnmelodyme/supercalculator/BuildConfig.java
+com/johnmelodyme/kwspcalculator/UI/EmploymentAct.java
+ com.johnmelodyme.kwspcalculator.UI.EmploymentAct
+com/johnmelodyme/kwspcalculator/BuildConfig.java
  com.johnmelodyme.kwspcalculator.BuildConfig
-com/johnmelodyme/supercalculator/UI/CalculatorActivity.java
+com/johnmelodyme/kwspcalculator/UI/CalculatorActivity.java
  com.johnmelodyme.kwspcalculator.UI.CalculatorActivity
  com.johnmelodyme.kwspcalculator.UI.CalculatorActivity$1
  com.johnmelodyme.kwspcalculator.UI.CalculatorActivity$2
-com/johnmelodyme/supercalculator/Const/Const.java
- com.johnmelodyme.kwspcalculator.Const.Const
-com/johnmelodyme/supercalculator/UI/EmploymentAct.java
- com.johnmelodyme.kwspcalculator.UI.EmploymentAct
-com/johnmelodyme/supercalculator/UI/SurveyWeb.java
+com/johnmelodyme/kwspcalculator/UI/SurveyWeb.java
  com.johnmelodyme.kwspcalculator.UI.SurveyWeb
+com/johnmelodyme/kwspcalculator/Const/Const.java
+ com.johnmelodyme.kwspcalculator.Const.Const
