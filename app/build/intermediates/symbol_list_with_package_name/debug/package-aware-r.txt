@@ -730,6 +730,7 @@ id info
 id inputsalary
 id invisible
 id italic
+id kwspcontribution
 id kwspeleven
 id kwspnine
 id kwspseven
