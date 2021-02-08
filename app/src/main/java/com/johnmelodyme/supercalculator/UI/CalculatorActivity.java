@@ -409,7 +409,7 @@ public class CalculatorActivity extends AppCompatActivity
                     total.setText("MYR " + TOTAL_VALUE);
                 } else
                 {
-                    Log.e(TAG, "onCalculateButton: No Value , What is User Doing man?");
+                    Log.e(TAG, "...");
                 }
             }
             //* If User Didn't clicked the KWSP Contribution;
