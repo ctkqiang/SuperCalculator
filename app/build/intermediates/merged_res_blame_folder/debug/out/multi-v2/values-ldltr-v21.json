@@ -4,7 +4,7 @@
             "outputFile": "/Users/macbook/Documents/SuperCalculator/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "/Users/macbook/.gradle/caches/transforms-2/files-2.1/9d486ea2f3505f108b0eabc38df7cf18/appcompat-1.2.0/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "source": "/Users/macbook/.gradle/caches/transforms-2/files-2.1/dfb454fcfdbb3dd87d814c0fc1b2b1a7/appcompat-1.2.0/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
