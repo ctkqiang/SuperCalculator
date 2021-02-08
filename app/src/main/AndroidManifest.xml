@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".UI.EmploymentAct"></activity>
+        <activity
+            android:name=".UI.EmploymentAct"
+            android:theme="@style/WebAppTheme" />
         <activity
             android:name=".UI.SurveyWeb"
             android:theme="@style/WebAppTheme" />
