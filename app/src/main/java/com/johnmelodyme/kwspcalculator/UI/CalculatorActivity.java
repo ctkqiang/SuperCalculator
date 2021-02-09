@@ -43,6 +43,7 @@ import com.johnmelodyme.kwspcalculator.R;
 public class CalculatorActivity extends AppCompatActivity
 {
     private static final String TAG = "MYWAGES =>";
+    public int FLAGS = 1;
     public boolean isRadioButtonChecked, isMalaysian;
     public double KWSP_CONTRIBUTION;
     public String userSalaryInput;
@@ -628,7 +629,7 @@ public class CalculatorActivity extends AppCompatActivity
         {
             InputMethodManager imm;
             imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 1);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), FLAGS);
         }
     }
 }
