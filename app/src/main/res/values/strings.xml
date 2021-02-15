@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Wages Calculator</string>
+    <string name="app_name">KWSP Calculator</string>
     <string name="EPF_rate">EPF: </string>
     <string name="PERKESO">SOCSO: </string>
     <string name="EIS">EIS: </string>

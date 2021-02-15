@@ -1,4 +1,4 @@
-#Tue Feb 09 02:40:31 MYT 2021
-base.0=/Users/johnmelodyme/Documents/Projects/SuperCalculator/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+#Tue Feb 16 00:54:12 MYT 2021
+base.0=/Users/macbook/Desktop/SuperCalculator/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

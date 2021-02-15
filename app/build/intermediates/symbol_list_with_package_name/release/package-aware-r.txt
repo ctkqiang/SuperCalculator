@@ -519,6 +519,8 @@ color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color appIcon_background
+color application_background
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -1141,6 +1143,9 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu action_bar_items
 mipmap app
+mipmap application
+mipmap application_foreground
+mipmap application_round
 mipmap cal
 mipmap cxccccccc
 mipmap dssss
